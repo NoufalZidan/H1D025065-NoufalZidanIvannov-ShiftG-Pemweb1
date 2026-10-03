@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum Pemrograman Web</title>
+  </head>
+  <body>
+    <h1>Cek Grade</h1>
+    <form onsubmit="cekNilai(event)">
+      <label>Masukkan nilai: </label>
+      <input type="number" id="number" /> <br />
+      <button>Kirim</button>
+    </form>
+    <p>Grade kamu: <span id="hasil"></span></p>
+    <script>
+      let number = document.getElementById("number");
+      let hasil = document.getElementById("hasil");
+
+      function cekNilai(event) {
+        event.preventDefault();
+
+        if (number.value > 80 && number.value <= 100) {
+          hasil.textContent = "A";
+        } else if (number.value > 60 && number.value <= 80) {
+          hasil.textContent = "B";
+        } else if (number.value > 40 && number.value <= 60) {
+          hasil.textContent = "C";
+        } else if (number.value > 20 && number.value <= 40) {
+          hasil.textContent = "D";
+        } else if (number.value >= 0 && number.value <= 20) {
+          hasil.textContent = "E";
+        } else {
+          hasil.textContent = "Nilai tidak valid";
+        }
+      }
+    </script>
+  </body>
+</html>

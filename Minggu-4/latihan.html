@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum Pemrograman Web</title>
+  </head>
+  <body>
+    <form onsubmit="return btnClick();">
+      <label>Nama: </label>
+      <input type="text" name="nama" id="nama" /><br />
+      <label>Email: </label>
+      <input type="email" name="email" id="email" /><br />
+      <label>Komentar: </label>
+      <textarea name="komentar" id="komentar"></textarea><br />
+      <button>SImpan</button>
+    </form>
+    <script>
+      function btnClick() {
+        let nama = document.getElementById("nama").value;
+        let email = document.getElementById("email").value;
+        let komentar = document.getElementById("komentar").value;
+        if (nama == "" || email == "" || komentar == "") {
+          alert("field tidak boleh kosong");
+          return false;
+        }
+
+        let polaNama = /^[A-Za-z ]+$/;
+
+        if (!polaNama.test(nama)) {
+          alert("Nama hanya boleh berisi huruf dan spasi!");
+          return false;
+        }
+
+        alert("Data berhasil disimpan!");
+        return true;
+      }
+    </script>
+  </body>
+</html>

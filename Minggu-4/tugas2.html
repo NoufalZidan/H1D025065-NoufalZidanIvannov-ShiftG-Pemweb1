@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum Pemrograman Web</title>
+  </head>
+
+  <body>
+    <h1>Kalkulator Sederhana</h1>
+
+    <form onsubmit="hitung(event)">
+      <label>Masukkan angka pertama: </label>
+      <input type="number" id="angka1" /><br />
+
+      <label>Masukkan angka kedua: </label>
+      <input type="number" id="angka2" /><br />
+
+      <p>
+        Jenis Operasi: <br />
+        1. Tambah <br />
+        2. Kurang <br />
+        3. Kali <br />
+        4. Bagi <br />
+        Pilih Operasi, isi dalam bentuk angka (1-4):
+      </p>
+
+      <input type="number" id="operasi" min="1" max="4" />
+
+      <br /><br />
+
+      <button type="submit">Cek</button>
+    </form>
+
+    <p id="hasil"></p>
+
+    <script>
+      function hitung(event) {
+        event.preventDefault();
+
+        let angka1 = Number(document.getElementById("angka1").value);
+        let angka2 = Number(document.getElementById("angka2").value);
+        let operasi = Number(document.getElementById("operasi").value);
+
+        let hasil;
+
+        if (operasi == 1) {
+          hasil = angka1 + angka2;
+        } else if (operasi == 2) {
+          hasil = angka1 - angka2;
+        } else if (operasi == 3) {
+          hasil = angka1 * angka2;
+        } else if (operasi == 4) {
+          hasil = angka1 / angka2;
+        } else {
+          hasil = "Operasi tidak valid!";
+        }
+
+        document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+      }
+    </script>
+  </body>
+</html>
